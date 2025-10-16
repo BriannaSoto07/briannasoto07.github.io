@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <style>
+        /* --- Basic Setup & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Container & Layout --- */
+        .container {
+            max-width: 960px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+        
+        header p {
+            margin: 0;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 3rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+            border-bottom: 3px solid #77aaff; /* An accent color */
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title-wrapper {
+            text-align: center;
+        }
+        
+        /* --- About Section --- */
+        #about p {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #77aaff;
+        }
+        
+        .project-card .tags {
+            margin-top: 1rem;
+        }
+
+        .project-card .tag {
+            display: inline-block;
+            background-color: #eef;
+            color: #5577cc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* --- Skills Section --- */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skills-list li {
+            background: #77aaff;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+        }
+        
+        .social-links a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .social-links a:hover {
+            color: #77aaff;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <h1>Your Name</h1>
+        <p>Mathematics & Statistics Student at the University of Connecticut</p>
+    </header>
+
+    <main class="container">
+
+        <section id="about">
+            <div class="section-title-wrapper">
+                <h2>About Me</h2>
+            </div>
+            <p>
+                I'm a passionate and analytical student with a strong foundation in Mathematics and Statistics, graduating in December 2025. 
+                My goal is to pursue a career in Data Engineering, where I can build robust systems to process and analyze large-scale data. 
+                I enjoy solving complex problems, working with Python and SQL, and exploring cloud technologies like AWS.
+            </p>
+        </section>
+
+        <section id="projects">
+            <div class="section-title-wrapper">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>US Test Score Analysis Platform</h3>
+                    <p>A web application prototype designed to help students analyze standardized test scores. Built the front-end to demonstrate the concept and user flow.</p>
+                    <div class="tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <a href="#" target="_blank">View on GitHub &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>R Data Visualization Showcase</h3>
+                    <p>A series of data visualizations created for a university problem set using R, ggplot2, and base R functions to uncover insights from complex datasets.</p>
+                    <div class="tags">
+                        <span class="tag">R</span>
+                        <span class="tag">ggplot2</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                    <a href="#" target="_blank">View on GitHub &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>LeetCode Algorithm Solutions</h3>
+                    <p>My personal repository of solutions to various LeetCode problems, focusing on common data structures and algorithms, written primarily in Python.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
+                    <a href="#" target="_blank">View on GitHub &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-title-wrapper">
+                <h2>Technical Skills</h2>
+            </div>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>SQL</li>
+                <li>R</li>
+                <li>Java</li>
+                <li>AWS</li>
+                <li>LaTeX</li>
+                <li>Tableau</li>
+                <li>Power BI</li>
+                <li>Git & GitHub</li>
+                <li>HTML & CSS</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+             <div class="section-title-wrapper">
+                <h2>Get In Touch</h2>
+            </div>
+            <p>I'm currently seeking full-time opportunities in Data Engineering and related fields. Let's connect!</p>
+            <div class="social-links">
+                <a href="mailto:your.email@uconn.edu">your.email@uconn.edu</a>
+                <a href="https://linkedin.com/in/your-linkedin-url" target="_blank">LinkedIn</a>
+                <a href="https://github.com/your-username" target="_blank">GitHub</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
