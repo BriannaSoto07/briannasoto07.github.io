@@ -1,400 +1,763 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brianna Soto | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        /* General Body & Typography */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #343a40;
-            line-height: 1.7;
-            scroll-behavior: smooth;
-        }
+      * {
+        font-family: "Inter", sans-serif;
+      }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            color: #212529;
-            margin-bottom: 0.5em;
-        }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+      }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+      }
 
-        a:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-        
-        ul {
-            list-style-position: inside;
-            padding-left: 0;
-        }
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-        /* Header & Navigation */
-        .header-section {
-            background: #ffffff;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #e9ecef;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            text-align: center;
-        }
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
 
-        .header-section h1 {
-            font-size: 3rem;
-            margin-bottom: 0.25rem;
-            color: #343a40;
-            font-weight: 700;
-        }
-        
-        .header-section .tagline {
-            font-size: 1.2rem;
-            color: #6c757d;
-            margin-top: 0;
-            font-weight: 400;
-        }
+      .btn-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        transition: all 0.3s ease;
+      }
 
-        .contact-info {
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .contact-info a {
-            margin: 0 0.8rem;
-            color: #495057;
-        }
+      .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+      }
 
-        .contact-info a:hover {
-            color: #007bff;
-            text-decoration: none;
-        }
+      .section-title {
+        position: relative;
+        display: inline-block;
+      }
 
-        /* Section Styling */
-        section {
-            padding: 4rem 0;
-            background-color: #ffffff;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        
-        section:last-of-type {
-            margin-bottom: 0;
-        }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 2px;
+      }
 
-        section h2 {
-            font-size: 2.2rem;
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 0.5em;
-            font-weight: 700;
-        }
+      .tag-skill {
+        background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        border: 1px solid rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+      }
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: #007bff;
-            border-radius: 2px;
-        }
+      .tag-skill:hover {
+        background: linear-gradient(135deg, #667eea25 0%, #764ba225 100%);
+        border-color: rgba(102, 126, 234, 0.6);
+      }
 
-        /* Card-based Layout */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+      .resume-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
 
-        .card {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .card h3 {
-            font-size: 1.6rem;
-            color: #007bff;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .card .card-subtitle {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #6c757d;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #495057;
-        }
-        
-        .card ul {
-            font-size: 0.95rem;
-            color: #495057;
-            padding-left: 1.2rem;
-        }
-        
-        .card .tags {
-            margin-top: 1.2rem;
-        }
-
-        .card .tag {
-            display: inline-block;
-            background-color: #e0f2f7;
-            color: #007bff;
-            padding: 0.3em 0.8em;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 0.6rem;
-            margin-bottom: 0.6rem;
-            font-weight: 600;
-        }
-
-        /* Skills Section */
-        #skills .skills-container {
-            max-width: 900px;
-            margin: 2rem auto 0 auto;
-        }
-        
-        #skills h3 {
-            text-align: center;
-            color: #495057;
-            font-size: 1.2rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .skills-list li {
-            background: #007bff;
-            color: #fff;
-            padding: 0.8rem 1.8rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        
-        .skills-list li:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2.5rem 0;
-            background: #343a40;
-            color: #f8f9fa;
-            font-size: 0.9rem;
-            margin-top: 2rem;
-            border-top: 1px solid #495057;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .header-section h1 {
-                font-size: 2.5rem;
-            }
-            .header-section .tagline {
-                font-size: 1rem;
-            }
-            .contact-info a {
-                display: block;
-                margin: 0.5rem 0;
-            }
-            section {
-                padding: 3rem 0;
-            }
-            section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-            }
-            .card {
-                padding: 1.5rem;
-            }
-            .card h3 {
-                font-size: 1.4rem;
-            }
-        }
+      .fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body class="bg-white">
+    <!-- Header Section -->
+    <header
+      class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden"
+    >
+      <!-- Decorative Elements -->
+      <div class="absolute inset-0 opacity-10">
+        <div
+          class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"
+        ></div>
+      </div>
 
-    <header class="header-section">
-        <div class="container">
-            <h1>Brianna Soto</h1>
-            <p class="tagline">Business & Finance Student | New York University Shanghai</p>
-            <div class="contact-info">
-                <a href="tel:+8618602110812"><i class="fas fa-phone-alt"></i> +86 186 0211 0812</a>
-                <a href="mailto:briannacis90@hotmail.com"><i class="fas fa-envelope"></i> briannacis90@hotmail.com</a>
-                <a href="https://linkedin.com/in/brianna-soto-142073377" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/your-github-username" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 md:py-24">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+            Brianna Soto
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 mb-2">
+            Business & Finance | NYU Shanghai
+          </p>
+          <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+            Passionate about venture capital, market analysis, and strategic
+            business development
+          </p>
+
+          <!-- Contact Info -->
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6 mt-8">
+            <a
+              href="mailto:briannacis90@hotmail.com"
+              class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <i class="fas fa-envelope"></i>
+              <span class="hidden sm:inline">Email</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/brianna-soto-142073377"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <i class="fab fa-linkedin"></i>
+              <span class="hidden sm:inline">LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/BriannaSoto07"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <i class="fab fa-github"></i>
+              <span class="hidden sm:inline">GitHub</span>
+            </a>
+          </div>
         </div>
+      </div>
     </header>
 
-    <main class="container">
+    <main class="max-w-6xl mx-auto px-4 py-16 md:py-24 space-y-20">
+      <!-- Resume Section -->
+      <section id="resume" class="scroll-mt-20">
+        <div class="mb-12">
+          <h2 class="text-4xl font-bold text-center mb-2 section-title">
+            Resume
+          </h2>
+        </div>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>New York University Shanghai</h3>
-                    <p class="card-subtitle">Bachelor of Science in Business and Finance | Expected May 2029</p>
-                    <p>Planned Concentration in Accounting and Minor in Computer Science</p>
-                </div>
+        <div class="grid md:grid-cols-3 gap-8 items-center mb-12">
+          <div class="md:col-span-2 resume-container bg-white">
+            <!-- PDF Viewer with Fallback -->
+            <div
+              class="bg-gray-50 aspect-video md:aspect-auto md:h-96 flex items-center justify-center border-4 border-dashed border-gray-300 rounded-lg"
+            >
+              <div class="text-center">
+                <i
+                  class="fas fa-file-pdf text-5xl text-red-500 mb-4 inline-block"
+                ></i>
+                <p class="text-gray-600 font-semibold mb-2">PDF Resume</p>
+                <p class="text-gray-500 text-sm">
+                  Click download to view full resume
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="experience">
-            <h2>Work Experience</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Cashier</h3>
-                    <p class="card-subtitle">Big Y World Class Market | Mansfield, CT | Nov 2024 – Present</p>
-                    <ul>
-                        <li>Process customer transactions accurately and efficiently, handling cash, credit, and debit payments.</li>
-                        <li>Deliver excellent customer service by addressing inquiries and ensuring a positive shopping experience.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>International Business Intern</h3>
-                    <p class="card-subtitle">East Motor LLC | Willimantic, CT | Jun 2023 – Aug 2024</p>
-                    <ul>
-                        <li>Prepared and finalized business documents, including bills of sale and titles, ensuring compliance with international trade regulations.</li>
-                        <li>Conducted market research on the Peruvian heavy equipment sector to inform strategic sales decisions.</li>
-                    </ul>
-                </div>
+          <div class="space-y-4">
+            <div
+              class="bg-white p-6 rounded-xl shadow-lg card-hover border border-gray-200"
+            >
+              <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+                <i class="fas fa-file text-blue-600"></i>
+                Resume
+              </h3>
+              <a
+                href="brianna_resume.pdf"
+                download="Brianna_Soto_Resume.pdf"
+                class="btn-gradient w-full py-3 px-4 rounded-lg text-white font-semibold flex items-center justify-center gap-2 hover:text-white"
+              >
+                <i class="fas fa-download"></i>
+                Download PDF
+              </a>
             </div>
-        </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Startup Landscape Analysis: AI in Education Technology</h3>
-                    <ul>
-                        <li>Researched and analyzed 10+ early-stage startups in the EdTech sector to identify emerging market trends and investment opportunities for venture capital evaluation.</li>
-                        <li>Developed a market map to categorize companies based on business models and target demographics, identifying a key gap for AI-powered writing assistants.</li>
-                        <li>Authored a one-page investment memo on a top-prospect startup, providing a qualitative analysis of its product, team, and market potential.</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">Investment Analysis</span>
-                        <span class="tag">Pitch Deck Creation</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Market Entry Strategy: Dutch Bros Coffee in the Northeast</h3>
-                    <ul>
-                        <li>Developed a hypothetical go-to-market strategy for a beverage retailer's expansion into a new geographic market, targeting consulting industry problem-solving frameworks.</li>
-                        <li>Conducted a SWOT analysis and competitive landscape review to identify key market challenges and opportunities against established incumbents like Starbucks and Dunkin'.</li>
-                        <li>Formulated a 3-point strategic recommendation focused on targeted real estate, localized marketing, and digital partnerships to capture market share.</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag">PowerPoint</span>
-                        <span class="tag">SWOT Analysis</span>
-                    </div>
-                </div>
+            <div
+              class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200"
+            >
+              <p class="text-sm text-gray-700">
+                <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                <strong>Tip:</strong> Download to view the complete resume with
+                full formatting and details.
+              </p>
             </div>
-        </section>
-        
-        <section id="leadership">
-            <h2>Leadership & Activities</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Member</h3>
-                    <p class="card-subtitle">National FFA Organization | Remote | Mar 2021 – Present</p>
-                    <ul>
-                        <li>Developed leadership and public speaking skills through participation in chapter meetings and state-level events.</li>
-                        <li>Collaborated with a team of 5 to organize a community fundraiser, raising over \$500 for local agricultural scholarships.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Volunteer</h3>
-                    <p class="card-subtitle">Agriculture Education Department Christmas Tree Sales | Storrs, CT | Dec 2021 – Dec 2024</p>
-                    <ul>
-                        <li>Managed customer sales and handled cash and credit transactions for over 100+ customers per season.</li>
-                        <li>Assisted with inventory management and the daily reconciliation of sales records, ensuring accuracy.</li>
-                    </ul>
-                </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="scroll-mt-20">
+        <div class="mb-12">
+          <h2 class="text-4xl font-bold text-center mb-2 section-title">
+            Education
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover border border-gray-200"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-graduation-cap text-white text-lg"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-1">
+                  New York University Shanghai
+                </h3>
+                <p class="text-purple-600 font-semibold mb-3">
+                  Bachelor of Science in Business and Finance
+                </p>
+                <p class="text-gray-600 mb-2">
+                  Expected Graduation: <strong>May 2029</strong>
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <strong>Concentration:</strong> Accounting
+                </p>
+                <p class="text-gray-600 text-sm">
+                  <strong>Minor:</strong> Computer Science
+                </p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <h3>Languages</h3>
-                <ul class="skills-list">
-                    <li>English (Native)</li>
-                    <li>Spanish (Native)</li>
-                    <li>Mandarin Chinese (Beginner)</li>
-                </ul>
+      <!-- Projects Section -->
+      <section id="projects" class="scroll-mt-20">
+        <div class="mb-12">
+          <h2 class="text-4xl font-bold text-center mb-2 section-title">
+            Featured Projects
+          </h2>
+          <p class="text-center text-gray-600 mt-4">
+            Strategic analysis and business development case studies
+          </p>
+        </div>
 
-                <h3>Technical Skills</h3>
-                <ul class="skills-list">
-                    <li>Microsoft Office Suite</li>
-                    <li>Canva</li>
-                    <li>CapCut</li>
-                </ul>
-
-                <h3>Coursework Skills</h3>
-                <ul class="skills-list">
-                    <li>Market Research</li>
-                    <li>SWOT Analysis</li>
-                    <li>Competitive Analysis</li>
-                    <li>Business Communications</li>
-                </ul>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Project 1: EdTech -->
+          <a
+            href="projects/edtech-startup-analysis.html"
+            class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-200 hover:no-underline group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <i class="fas fa-brain text-white text-6xl opacity-20"></i>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-purple-600"
+              >
+                Investment Analysis
+              </div>
+              <div
+                class="absolute bottom-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                View Project →
+              </div>
             </div>
-        </section>
+            <div class="p-8">
+              <h3
+                class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors"
+              >
+                Startup Landscape Analysis
+              </h3>
+              <p class="text-purple-600 font-semibold mb-4">
+                AI in Education Technology
+              </p>
 
+              <ul class="space-y-3 mb-6">
+                <li class="flex gap-3 text-gray-700">
+                  <span class="text-purple-500 font-bold flex-shrink-0">•</span>
+                  <span
+                    >Researched and analyzed 10+ early-stage EdTech startups to
+                    identify emerging market trends and VC investment
+                    opportunities</span
+                  >
+                </li>
+                <li class="flex gap-3 text-gray-700">
+                  <span class="text-purple-500 font-bold flex-shrink-0">•</span>
+                  <span
+                    >Developed market map categorizing companies by business
+                    models, identifying key gap for AI-powered writing
+                    assistants</span
+                  >
+                </li>
+                <li class="flex gap-3 text-gray-700">
+                  <span class="text-purple-500 font-bold flex-shrink-0">•</span>
+                  <span
+                    >Authored one-page investment memo with qualitative analysis
+                    of product, team, and market potential</span
+                  >
+                </li>
+              </ul>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tag-skill text-sm px-3 py-1 rounded-full text-purple-700 font-medium"
+                  >Investment Analysis</span
+                >
+                <span
+                  class="tag-skill text-sm px-3 py-1 rounded-full text-purple-700 font-medium"
+                  >Market Research</span
+                >
+                <span
+                  class="tag-skill text-sm px-3 py-1 rounded-full text-purple-700 font-medium"
+                  >Pitch Deck</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 2: Dutch Bros -->
+          <a
+            href="projects/dutch-bros-strategy.html"
+            class="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-200 hover:no-underline group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+              >
+                <i class="fas fa-store text-white text-6xl opacity-20"></i>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-orange-600"
+              >
+                Go-to-Market Strategy
+              </div>
+              <div
+                class="absolute bottom-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                View Project →
+              </div>
+            </div>
+            <div class="p-8">
+              <h3
+                class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors"
+              >
+                Market Entry Strategy
+              </h3>
+              <p class="text-orange-600 font-semibold mb-4">
+                Dutch Bros Coffee in the Northeast
+              </p>
+
+              <ul class="space-y-3 mb-6">
+                <li class="flex gap-3 text-gray-700">
+                  <span class="text-orange-500 font-bold flex-shrink-0">•</span>
+                  <span
+                    >Developed hypothetical go-to-market strategy for beverage
+                    retailer's geographic expansion using consulting
+                    frameworks</span
+                  >
+                </li>
+                <li class="flex gap-3 text-gray-700">
+                  <span class="text-orange-500 font-bold flex-shrink-0">•</span>
+                  <span
+                    >Conducted SWOT analysis and competitive landscape review
+                    against Starbucks and Dunkin' incumbents</span
+                  >
+                </li>
+                <li class="flex gap-3 text-gray-700">
+                  <span class="text-orange-500 font-bold flex-shrink-0">•</span>
+                  <span
+                    >Formulated 3-point strategic recommendation: targeted real
+                    estate, localized marketing, and digital partnerships</span
+                  >
+                </li>
+              </ul>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tag-skill text-sm px-3 py-1 rounded-full text-orange-700 font-medium"
+                  >SWOT Analysis</span
+                >
+                <span
+                  class="tag-skill text-sm px-3 py-1 rounded-full text-orange-700 font-medium"
+                  >Strategy</span
+                >
+                <span
+                  class="tag-skill text-sm px-3 py-1 rounded-full text-orange-700 font-medium"
+                  >PowerPoint</span
+                >
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="scroll-mt-20">
+        <div class="mb-12">
+          <h2 class="text-4xl font-bold text-center mb-2 section-title">
+            Work Experience
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover border border-gray-200"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Cashier</h3>
+                <p class="text-blue-600 font-semibold">
+                  Big Y World Class Market
+                </p>
+              </div>
+              <span
+                class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                >Nov 2024 – Present</span
+              >
+            </div>
+            <p class="text-gray-600 text-sm mb-3">Mansfield, CT</p>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3">
+                <span class="text-blue-500">✓</span>
+                <span
+                  >Process customer transactions accurately and efficiently,
+                  handling cash, credit, and debit payments</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-500">✓</span>
+                <span
+                  >Deliver excellent customer service by addressing inquiries
+                  and ensuring positive shopping experience</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover border border-gray-200"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">
+                  International Business Intern
+                </h3>
+                <p class="text-blue-600 font-semibold">East Motor LLC</p>
+              </div>
+              <span
+                class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                >Jun 2023 – Aug 2024</span
+              >
+            </div>
+            <p class="text-gray-600 text-sm mb-3">Willimantic, CT</p>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3">
+                <span class="text-blue-500">✓</span>
+                <span
+                  >Prepared and finalized business documents, including bills of
+                  sale and titles, ensuring international trade compliance</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-500">✓</span>
+                <span
+                  >Conducted market research on the Peruvian heavy equipment
+                  sector to inform strategic sales decisions</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership & Activities Section -->
+      <section id="leadership" class="scroll-mt-20">
+        <div class="mb-12">
+          <h2 class="text-4xl font-bold text-center mb-2 section-title">
+            Leadership & Activities
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover border border-gray-200"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Member</h3>
+                <p class="text-green-600 font-semibold">
+                  National FFA Organization
+                </p>
+              </div>
+              <span
+                class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                >Mar 2021 – Present</span
+              >
+            </div>
+            <p class="text-gray-600 text-sm mb-3">Remote</p>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3">
+                <span class="text-green-500">✓</span>
+                <span
+                  >Developed leadership and public speaking skills through
+                  chapter meetings and state-level events</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-green-500">✓</span>
+                <span
+                  >Collaborated with team of 5 to organize community fundraiser,
+                  raising over $500 for agricultural scholarships</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover border border-gray-200"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Volunteer</h3>
+                <p class="text-green-600 font-semibold">
+                  Agriculture Education Department Christmas Tree Sales
+                </p>
+              </div>
+              <span
+                class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                >Dec 2021 – Dec 2024</span
+              >
+            </div>
+            <p class="text-gray-600 text-sm mb-3">Storrs, CT</p>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex gap-3">
+                <span class="text-green-500">✓</span>
+                <span
+                  >Managed customer sales and handled cash and credit
+                  transactions for 100+ customers per season</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-green-500">✓</span>
+                <span
+                  >Assisted with inventory management and daily reconciliation
+                  of sales records, ensuring accuracy</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="scroll-mt-20">
+        <div class="mb-12">
+          <h2 class="text-4xl font-bold text-center mb-2 section-title">
+            Skills & Expertise
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Languages -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <h3
+              class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"
+            >
+              <i class="fas fa-globe text-blue-600"></i>
+              Languages
+            </h3>
+            <div class="space-y-3">
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                English <span class="text-gray-500">(Native)</span>
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Spanish <span class="text-gray-500">(Native)</span>
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Mandarin Chinese <span class="text-gray-500">(Beginner)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <h3
+              class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"
+            >
+              <i class="fas fa-laptop-code text-purple-600"></i>
+              Technical Skills
+            </h3>
+            <div class="space-y-3">
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Microsoft Office
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Canva
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                CapCut
+              </div>
+            </div>
+          </div>
+
+          <!-- Coursework Skills -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <h3
+              class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"
+            >
+              <i class="fas fa-chart-line text-orange-600"></i>
+              Business Skills
+            </h3>
+            <div class="space-y-3">
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Market Research
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                SWOT Analysis
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Competitive Analysis
+              </div>
+              <div
+                class="tag-skill px-4 py-2 rounded-lg font-semibold text-gray-700"
+              >
+                Business Communications
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Brianna Soto. All rights reserved.</p>
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-12"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h4 class="font-bold text-lg mb-4">Brianna Soto</h4>
+            <p class="text-gray-400">Business & Finance | NYU Shanghai</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#resume" class="hover:text-white transition-colors"
+                  >Resume</a
+                >
+              </li>
+              <li>
+                <a href="#projects" class="hover:text-white transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="#skills" class="hover:text-white transition-colors"
+                  >Skills</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Connect</h4>
+            <div class="flex gap-4">
+              <a
+                href="mailto:briannacis90@hotmail.com"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fas fa-envelope text-xl"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/brianna-soto-142073377"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a
+                href="https://github.com/BriannaSoto07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+          </div>
         </div>
-    </footer>
 
-</body>
+        <div
+          class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm"
+        >
+          <p>
+            &copy; 2025 Brianna Soto. All rights reserved. | Built with
+            <span class="text-red-500">♥</span> using modern web technologies
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
