@@ -271,5 +271,5 @@ The identified market gap between general writing tools and academic-specific pl
 ---
 
 **Document Version:** 1.0  
-**Date Prepared:** October 2024  
+**Date Prepared:** June 2025  
 **Prepared by:** Brianna Soto, Business & Finance Student, NYU Shanghai
